@@ -1,0 +1,75 @@
+﻿@model WebApplication1.Models.AcceptedRawMaterial
+
+@{
+    ViewData["Title"] = "Удаление";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы уверены, что хотите удалить это?</h3>
+<div>
+    <h4>Принятое вторсырье</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOfRawMaterials)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfRawMaterials)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberKG)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumberKG)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomOfStorage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RoomOfStorage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAndTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateAndTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StoragesID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StoragesID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RawMaterial)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RawMaterial.RawMaterialsID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HumanResourceDepartment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HumanResourceDepartment.HumanResourcesDepartmentID)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="AcceptedRawMaterialsID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Вернуться к списку</a>
+    </form>
+</div>

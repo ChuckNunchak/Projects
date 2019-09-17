@@ -1,0 +1,71 @@
+﻿@model WebApplication1.Models.AcceptedRawMaterial
+
+@{
+    ViewData["Title"] = "Добавление";
+}
+
+<h2>Добавление</h2>
+
+<h4>Принятое вторсырье</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TypeOfRawMaterials" class="control-label"></label>
+                <input asp-for="TypeOfRawMaterials" class="form-control" />
+                <span asp-validation-for="TypeOfRawMaterials" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberKG" class="control-label"></label>
+                <input asp-for="NumberKG" class="form-control" />
+                <span asp-validation-for="NumberKG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee" class="control-label"></label>
+                <input asp-for="Employee" class="form-control" />
+                <span asp-validation-for="Employee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomOfStorage" class="control-label"></label>
+                <input asp-for="RoomOfStorage" class="form-control" />
+                <span asp-validation-for="RoomOfStorage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateAndTime" class="control-label"></label>
+                <input asp-for="DateAndTime" class="form-control" />
+                <span asp-validation-for="DateAndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cost" class="control-label"></label>
+                <input asp-for="Cost" class="form-control" />
+                <span asp-validation-for="Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RawMaterialsID" class="control-label"></label>
+                <select asp-for="RawMaterialsID" class ="form-control" asp-items="ViewBag.RawMaterialsID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HumanResourcesDepartmentID" class="control-label"></label>
+                <select asp-for="HumanResourcesDepartmentID" class ="form-control" asp-items="ViewBag.HumanResourcesDepartmentID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="StoragesID" class="control-label"></label>
+                <input asp-for="StoragesID" class="form-control" />
+                <span asp-validation-for="StoragesID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться к списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

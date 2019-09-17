@@ -1,0 +1,80 @@
+﻿@using WebApplication1.Models
+
+@model IndexViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Сотрудники</title>
+    <style>
+        p {
+            font-size: 120%;
+            font-family: monospace;
+            color: #000000;
+        }
+
+        .delete {
+            color: #FF0000;
+        }
+
+        .red {
+            color: #00FF00;
+        }
+
+        th {
+            background-color: darkgray
+        }
+    </style>
+</head>
+<body>
+    <h1>Сотрудники</h1>
+    <p>
+        <a asp-action="Create">Добавить</a>
+    </p>
+    <table class="table" border="1" width="100%" bordercolor="#0000FF">
+        <tr>
+            <th>Ф.И.О.</th>
+            <th>Стаж</th>
+            <th>Принял вторсырье</th>
+            <th>Функции</th>
+
+        </tr>
+        @foreach (HumanResourceDepartment u in Model.HumanResourcesDepartment)
+        {
+            <tr>
+                <td>@u.Initial</td>
+                <td>@u.LengthOfService</td>
+                <td>@u.AcceptRawMaterials</td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@u.HumanResourcesDepartmentID"><div class="red">Изменить</div></a> 
+                    <a asp-action="Details" asp-route-id="@u.HumanResourcesDepartmentID">Описание</a> 
+                    <a asp-action="Delete" asp-route-id="@u.HumanResourcesDepartmentID"><div class="delete">Удалить</div></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+    @if (Model.PageViewModel.HasPreviousPage)
+    {
+        <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+           class="btn btn-default btn">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Назад
+        </a>
+    }
+    @if (Model.PageViewModel.HasNextPage)
+    {
+        <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+           class="btn btn-default btn">
+            Вперед
+            <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+    }
+    </body>
+</html>

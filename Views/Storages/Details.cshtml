@@ -1,0 +1,60 @@
+﻿@model WebApplication1.Models.Storage
+
+@{
+    ViewData["Title"] = "Описание";
+}
+
+<h2>Описание</h2>
+
+<div>
+    <h4>Складские помещения</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameOfStorage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NameOfStorage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InventoryNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InventoryNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DesignatedEmployee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DesignatedEmployee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SquareOfStorage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SquareOfStorage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tonnage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tonnage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FillingPercentage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FillingPercentage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOfStorage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfStorage.TypeOfStoragesID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.StoragesID">Изменить</a> |
+    <a asp-action="Index">Вернуться к списку</a>
+</div>

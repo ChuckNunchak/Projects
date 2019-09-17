@@ -1,0 +1,48 @@
+﻿@model WebApplication1.Models.RawMaterial
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Описание</h2>
+
+<div>
+    <h4>Виды вторичного сырья</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RawMaterialsName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RawMaterialsName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DescriptionOfRawMaterials)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescriptionOfRawMaterials)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ReceptionConditions)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ReceptionConditions)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StorageConditions)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StorageConditions)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CostKG)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CostKG)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.RawMaterialsID">Изменить</a> |
+    <a asp-action="Index">Вернуться к списку</a>
+</div>

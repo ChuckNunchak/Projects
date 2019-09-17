@@ -1,0 +1,90 @@
+﻿@using WebApplication1.Models
+
+@model IndexViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Принятое сырье</title>
+    <style>
+        p {
+            font-size: 120%;
+            font-family: monospace;
+            color: #000000;
+        }
+
+        .delete {
+            color: #FF0000;
+        }
+
+        .red {
+            color: #00FF00;
+        }
+
+        th {
+            background-color: darkgray
+        }
+    </style>
+</head>
+<body>
+    <h1>Принятое сырье</h1>
+
+    <p>
+        <a asp-action="Create">Добавить</a>
+    </p>
+    <table class="table" border="1" width="100%" bordercolor="#0000FF">
+        <tr>
+            <th>Вид вторичного сырья</th>
+            <th>Количество в килограммах</th>
+            <th>Сотрудник(осуществлявший прием)</th>
+            <th>Помещение хранения</th>
+            <th>Дата приема</th>
+            <th>Цена</th>
+            <th>Функции</th>
+
+        </tr>
+        @foreach (AcceptedRawMaterial u in Model.AcceptedRawMaterials)
+        {
+            <tr>
+                <td>@u.TypeOfRawMaterials</td>
+                <td>@u.NumberKG</td>
+                <td>@u.Employee</td>
+                <td>@u.RoomOfStorage</td>
+                <td>@u.DateAndTime</td>
+                <td>@u.Cost</td>
+
+
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@u.RawMaterialsID"><div class="red">Изменить</div></a> |
+                    <a asp-action="Details" asp-route-id="@u.RawMaterialsID">Описание</a> |
+                    <a asp-action="Delete" asp-route-id="@u.RawMaterialsID"><div class="delete">Удалить</div></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+    @if (Model.PageViewModel.HasPreviousPage)
+    {
+        <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+           class="btn btn-default btn">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Назад
+        </a>
+    }
+    @if (Model.PageViewModel.HasNextPage)
+    {
+        <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+           class="btn btn-default btn">
+            Вперед
+            <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+    }
+</body>
+</html>
